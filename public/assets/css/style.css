@@ -1,0 +1,15 @@
+.masonry *{
+    margin: 0;
+    padding: 0;
+}
+
+.masonry {
+    columns: 4;
+    column-gap: 15px;
+}
+
+.masonry .box {
+    width: 100%;
+    margin-bottom: 10px;
+    break-inside: avoid;
+}
