@@ -25,6 +25,7 @@ class LikeKomen extends BaseController
 
     public function like()
     {
+        $this->isLogedIn();
         $d = $this->request->getVar();
         $fotoid = $d['foto_id'];
         $like = $this->M_like->where(['foto_id' => $fotoid, 'user_id' => $d['user_id']])->first();

@@ -6,6 +6,7 @@ use CodeIgniter\Controller;
 use CodeIgniter\HTTP\CLIRequest;
 use CodeIgniter\HTTP\IncomingRequest;
 use CodeIgniter\HTTP\RequestInterface;
+use CodeIgniter\HTTP\Response;
 use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
 
@@ -55,9 +56,13 @@ abstract class BaseController extends Controller
 
         // E.g.: $this->session = \Config\Services::session();
     }
-    protected function isLogedIn(){
-        if (!session()->get('username')){
-            response()->redirect(base_url('auth/login'));
+
+    protected function isLogedIn()
+    {
+        if (empty(session()->get('username'))) {
+            session()->setFlashdata(['error' => 'Silahkan login dulu!']);
+            response()->redirect(base_url('auth/login'))->send();
+            die;
         }
     }
 }
