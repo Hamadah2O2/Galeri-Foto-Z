@@ -1,2 +1,4 @@
 writable
 writable/*
+.env
+public/assets/img/*
