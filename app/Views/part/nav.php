@@ -34,7 +34,7 @@
         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           <?= (session()->get('username')) ? session()->get('username') : 'Account' ?>
         </a>
-        <ul class="dropdown-menu">
+        <ul class="dropdown-menu dropdown-menu-end">
           <?php if (!session()->get('username')) : ?>
             <li><a class="dropdown-item d-flex align-items-center" href="<?= base_url('auth/login') ?>"><span class="iconoir-log-in"></span> Login</a></li>
             <li><a class="dropdown-item d-flex align-items-center" href="<?= base_url('auth/register') ?>"><span class="iconoir-user-plus"></span> Register</a></li>
